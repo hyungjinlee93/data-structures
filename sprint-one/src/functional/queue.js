@@ -7,12 +7,17 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
+    storage[Object.keys(storage).length] = value;
   };
 
   someInstance.dequeue = function() {
+    var temp = storage[Object.keys(storage)[0]];
+    delete storage[Object.keys(storage)[0]];
+    return temp;
   };
 
   someInstance.size = function() {
+    return Object.keys(storage).length;
   };
 
   return someInstance;
