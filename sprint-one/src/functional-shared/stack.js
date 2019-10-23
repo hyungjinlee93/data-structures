@@ -5,23 +5,23 @@ var Stack = function() {
 
   // Use an object with numeric keys to store values
   someInstance.storage = {};
-  _.extend(someInstance, Stack.stackMethods);
+  _.extend(someInstance, stackMethods);
 
   return someInstance;
 };
 
-Stack.stackMethods = {};
+var stackMethods = {};
 
-Stack.stackMethods.size = function(){
+stackMethods.size = function(){
   return Object.keys(this.storage).length;
 };
 
-Stack.stackMethods.pop = function(){
+stackMethods.pop = function(){
   var temp = this.storage[Object.keys(this.storage).length - 1];
   delete this.storage[Object.keys(this.storage).length - 1];
   return temp;
 };
 
-Stack.stackMethods.push = function(value){
+stackMethods.push = function(value){
   this.storage[Object.keys(this.storage).length] = value;
 };
