@@ -11,8 +11,14 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    var temp = storage[Object.keys(storage)[0]];
-    delete storage[Object.keys(storage)[0]];
+    var temp = storage['0'];
+    delete storage['0'];
+    var counter = 0;
+    for(let key in storage){
+      storage[counter] = storage[key];
+      counter++;
+    }
+    delete storage[Object.keys(storage).length - 1];
     return temp;
   };
 
