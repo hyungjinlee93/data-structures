@@ -52,4 +52,18 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should return null when no nodes exist', function() {
+    linkedList.addToTail(4);
+    linkedList.removeHead();
+    expect(linkedList.removeHead()).to.equal(null);
+  });
+
+  it('should expect same node for both head and tail if only one node exists', function(){
+    linkedList.addToTail(12);
+    expect(linkedList.head).to.eql(linkedList.tail);
+  });
+
+  it('should expect false when calling contain on empty linkedList', function() {
+    expect(linkedList.contains(2)).to.equal(false);
+  })
 });
