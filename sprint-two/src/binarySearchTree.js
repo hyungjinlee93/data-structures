@@ -7,14 +7,6 @@ var BinarySearchTree = function (value) {
 
 BinarySearchTree.prototype.insert = function (target) {
   if (this.value !== target) {
-    // let newTree = new BinarySearchTree(target);
-    // let child = target < this.value ? this.left : this.right;
-    // if(!child){
-    //     child = newTree;
-    // } else {
-    //     child.insert(target);
-    // }
-
     if (target < this.value) {
       if (this.left === null) {
         this.left = new BinarySearchTree(target);
