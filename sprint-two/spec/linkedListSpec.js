@@ -36,7 +36,7 @@ describe('linkedList', function() {
     expect(linkedList.removeHead()).to.equal(4);
   });
 
-  it('should contain a value that was added', function() {
+  it('should contain a value that was added to tail', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
     expect(linkedList.contains(4)).to.equal(true);
@@ -66,4 +66,27 @@ describe('linkedList', function() {
   it('should expect false when calling contain on empty linkedList', function() {
     expect(linkedList.contains(2)).to.equal(false);
   })
+
+  //doubly linked list tests
+  it('should remove the tail from the list when removeTail is called', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeTail();
+    expect(linkedList.tail.value).to.equal(4);
+  });
+
+  it('should return the value of the former tail when removeTail is called', function() {
+    linkedList.addToHead(4);
+    expect(linkedList.removeTail()).to.equal(4);
+  });
+
+  it('should contain a value that was added to head', function() {
+    linkedList.addToHead(4);
+    linkedList.addToHead(5);
+    expect(linkedList.contains(5)).to.equal(true);
+    linkedList.removeHead();
+    expect(linkedList.head.value).to.equal(4);
+    expect(linkedList.contains(6)).to.equal(false);
+  });
+
 });
